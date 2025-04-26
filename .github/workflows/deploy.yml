@@ -1,3 +1,11 @@
+name: Build and Deploy Python App to ECS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # ✅ Allow manual "Run Workflow" from GitHub UI
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,4 +33,4 @@ jobs:
 
     - name: Update ECS Service
       run: |
-        aws ecs update-service --cluster my-ecs-cluster --service  python-ece-app-service-malrytj4 --force-new-deployment
+        aws ecs update-service --cluster my-ecs-cluster --service python-ece-app-service-malrytj4 --force-new-deployment
