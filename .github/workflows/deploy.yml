@@ -26,7 +26,7 @@ jobs:
         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 533267394172.dkr.ecr.us-east-1.amazonaws.com
 
     - name: Build, Tag, and Push Docker image
-       run: |
+      run: |
         docker build -t python-ecs-app:latest .
         docker tag python-ecs-app:latest 533267394172.dkr.ecr.us-east-1.amazonaws.com/python-ecs-app:latest
         docker push 533267394172.dkr.ecr.us-east-1.amazonaws.com/python-ecs-app:latest
